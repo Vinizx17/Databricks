@@ -1,0 +1,29 @@
+{
+    "num_workers": 0,
+    "cluster_name": "database",
+    "spark_version": "12.2.x-scala2.12",
+    "spark_conf": {
+        "spark.databricks.rocksDB.fileManager.useCommitService": "false"
+    },
+    "aws_attributes": {
+        "first_on_demand": 0,
+        "availability": "ON_DEMAND",
+        "zone_id": "us-west-2a",
+        "spot_bid_price_percent": 100,
+        "ebs_volume_count": 0
+    },
+    "node_type_id": "dev-tier-node",
+    "driver_node_type_id": "dev-tier-node",
+    "ssh_public_keys": [],
+    "custom_tags": {},
+    "spark_env_vars": {
+        "PYSPARK_PYTHON": "/databricks/python3/bin/python3"
+    },
+    "autotermination_minutes": 60,
+    "enable_elastic_disk": false,
+    "cluster_source": "UI",
+    "init_scripts": [],
+    "enable_local_disk_encryption": false,
+    "runtime_engine": "STANDARD",
+    "cluster_id": "0318-222345-81d8954t"
+}
