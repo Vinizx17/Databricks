@@ -1,0 +1,33 @@
+# File location and type
+file_location = "/FileStore/tables/barragem.csv"
+file_type = "csv"
+
+# CSV options
+infer_schema = "false"
+first_row_is_header = "true"
+delimiter = ","
+
+# The applied options are for CSV files. For other file types, these will be ignored.
+df = spark.read.format(file_type) \
+  .option("inferSchema", infer_schema) \
+  .option("header", first_row_is_header) \
+  .option("sep", delimiter) \
+  .load(file_location)
+
+display(df)
+
+colunas_selecionadas = ['ID','Empreendedor','UF','Município','Categoria de Risco - CRI','Nível de Emergência','Tipo de Barragem de Mineração','Minério principal presente no reservatório']
+
+df = df.select(*colunas_selecionadas)
+
+display(df)
+
+Regiao = df.select('UF', 'Município').dropDuplicates(['UF', 'Município'])
+Barragens = df.drop('UF', 'Município')
+
+display(Barragens)
+display(Regiao)
+
+Barragens.write.format('parquet').mode('overwrite').saveAsTable('Barragens_fact')
+
+Regiao.write.format('parquet').mode('overwrite').saveAsTable('Regioes_dim')
