@@ -23,7 +23,7 @@ df = df.select(*colunas_selecionadas)
 display(df)
 
 Regiao = df.select('UF', 'Município').dropDuplicates(['UF', 'Município'])
-
+Barragens = df
 
 display(Barragens)
 display(Regiao)
