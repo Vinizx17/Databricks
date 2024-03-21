@@ -28,6 +28,6 @@ Barragens = df
 display(Barragens)
 display(Regiao)
 
-Barragens.write.format('parquet').mode('overwrite').saveAsTable('Barragens_fact')
+Barragens.write.format('parquet').mode('overwrite').saveAsTable('fact_Barragens')
 
-Regiao.write.format('parquet').mode('overwrite').saveAsTable('Regioes_dim')
+Regiao.write.format('parquet').mode('overwrite').saveAsTable('Dim_Regioes')
